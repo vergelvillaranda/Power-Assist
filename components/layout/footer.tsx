@@ -21,25 +21,24 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#AED6F1]">
 
-      {/* CTA Banner */}
-      <div className="w-full py-12 sm:py-16 px-6 text-center flex flex-col items-center gap-5">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-          Ready to Power Up Your Business?
-        </h2>
-        <p className="text-white/80 text-base sm:text-lg font-medium">
-          Let's find the perfect virtual assistant for your needs!
-        </p>
-        <Link
-          href="/contact#application-form"
-          className="mt-2 px-8 py-4 bg-[#BEE3F8] hover:bg-[#D6EEF9] transition-colors duration-200 rounded-xl text-[#2B7BB9] font-bold text-base shadow-sm"
-        >
-          Get Started Today
-        </Link>
-      </div>
+{/* CTA Banner */}
+<div className="w-full py-8 sm:py-10 px-6 sm:px-20 lg:px-24 text-center flex flex-col items-center gap-3">
+  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+    Ready to Power Up Your Business?
+  </h2>
+  <p className="text-white/80 text-sm sm:text-base font-medium">
+    Let's find the perfect virtual assistant for your needs!
+  </p>
+  <Link
+    href="/contact#application-form"
+    className="mt-1 px-6 py-3 bg-[#BEE3F8] hover:bg-[#D6EEF9] transition-colors duration-200 rounded-xl text-[#2B7BB9] font-bold text-sm shadow-sm"
+  >
+    Get Started Today
+  </Link>
+</div>
 
-      {/* Footer Content */}
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 pt-2 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
+{/* Footer Content */}
+<div className="px-6 sm:px-20 lg:px-24 pt-2 pb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Brand */}
         <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-3">
@@ -106,11 +105,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/30 py-5 px-6 text-center">
-        <p className="text-white/70 text-sm sm:text-base">
-          © 2026 PowerAssist VA Agency. All rights reserved.
-        </p>
-      </div>
+      <div className="border-t border-white/30 py-3 px-6 sm:px-20 lg:px-24 text-center">
+  <p className="text-white/70 text-sm">
+    © 2026 PowerAssist VA Agency. All rights reserved.
+  </p>
+</div>
 
     </footer>
   );

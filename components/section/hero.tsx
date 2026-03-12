@@ -24,11 +24,11 @@ export default function HeroSection() {
       <div className="hidden md:block absolute top-[40%] right-[38%] w-10 h-10 rounded-full opacity-20"
         style={{ background: "#b8e0ff", animation: "floatB 10s ease-in-out infinite" }} />
 
-      {/* Content grid */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-10 md:py-14">
+      {/* Content grid — match navbar padding exactly */}
+<div className="relative z-10 w-full px-6 sm:px-20 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-10 md:py-14">
 
-        {/* LEFT — Text */}
-        <div className="flex flex-col gap-4 -mt-15 pl-9" style={{ animation: "fadeSlideUp 0.8s ease both" }}>
+  {/* LEFT — Text — remove pl-9 and the max-w-7xl mx-auto wrapper */}
+  <div className="flex flex-col gap-4 -mt-15" style={{ animation: "fadeSlideUp 0.8s ease both" }}>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
             <span style={{ color: "#9AD0FC" }}>Empowered</span>{" "}
             <span className="text-[#1a3a5c]">Virtual</span>
@@ -52,15 +52,28 @@ export default function HeroSection() {
             style={{ animation: "fadeSlideUp 0.8s 0.3s ease both" }}
           >
             <Link href="/hire">
-              <Button className="bg-[#75baff] hover:bg-[#4da3f5] text-white font-semibold px-5 py-2 h-auto rounded-md text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150 flex items-center gap-1.5">
-                Hire a VA <ArrowRight size={14} />
-              </Button>
-            </Link>
-            <Link href="/join">
-              <Button variant="outline" className="border-[#75baff] text-[#75baff] font-semibold px-5 py-2 h-auto rounded-md text-sm hover:bg-[#75baff] hover:text-white hover:-translate-y-0.5 transition-all duration-150 flex items-center gap-1.5">
-                <Users size={14} /> Join as a VA
-              </Button>
-            </Link>
+  <Button
+    className="relative overflow-hidden text-white font-semibold px-5 py-2 h-auto rounded-md text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-1.5
+    before:absolute before:inset-0 before:bg-[#4da3f5] before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-out"
+    style={{ backgroundColor: "#75baff" }}
+  >
+    <span className="relative z-10 flex items-center gap-1.5">
+      Hire a VA <ArrowRight size={14} />
+    </span>
+  </Button>
+</Link>
+
+<Link href="/join">
+  <Button
+    variant="outline"
+    className="relative overflow-hidden border-[#75baff] text-[#75baff] font-semibold px-5 py-2 h-auto rounded-md text-sm hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-1.5
+    before:absolute before:inset-0 before:bg-[#75baff] before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-out hover:text-white"
+  >
+    <span className="relative z-10 flex items-center gap-1.5">
+      <Users size={14} /> Join as a VA
+    </span>
+  </Button>
+</Link>
           </div>
 
           <p
@@ -73,57 +86,25 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT — Overlapping images */}
-        <div className="hidden md:flex relative items-center justify-center w-full h-[380px] lg:h-[480px]">
+<div className="hidden md:flex relative items-center justify-center w-full h-[380px] lg:h-[480px]" style={{ perspective: "1000px" }}>
 
-          {/* Image 1 — Ken Burns */}
-          <div
-            className="absolute left-0 top-0 w-[55%] lg:w-[300px] h-[340px] lg:h-[410px] rounded-2xl overflow-hidden shadow-xl border border-white/60"
-            style={{ animation: "floatImage 5s ease-in-out infinite" }}
-          >
-            <div className="absolute inset-0">
-              <Image src={images1[0]} alt="VA base" fill sizes="340px" className="object-cover" priority />
-            </div>
-            {images1.map((src, i) => (
-              <div
-                key={src}
-                className="absolute inset-0"
-                style={{
-                  animation: `kenBurns${(i % 3) + 1} 12s ease-in-out infinite`,
-                  animationDelay: `${i * 4}s`,
-                  opacity: 0,
-                }}
-              >
-                <Image src={src} alt={`VA image ${i + 1}`} fill sizes="340px" className="object-cover" priority={i === 0} />
-              </div>
-            ))}
-          </div>
+  {/* Image 1 */}
+  <div
+    className="absolute rounded-2xl overflow-hidden shadow-xl border border-white/60"
+    style={{ animation: "card1Swap 8s ease-in-out infinite" }}
+  >
+    <Image src={images1[0]} alt="VA 1" width={300} height={410} className="object-cover w-[260px] h-[360px] lg:w-[300px] lg:h-[410px]" priority />
+  </div>
 
-          {/* Image 2 — Slide up, counter-rotated */}
-          <div
-            className="absolute right-11 bottom-25 w-[42%] lg:w-[260px] h-[300px] lg:h-[300px] rotate-90"
-            style={{ animation: "floatImage 6s ease-in-out infinite reverse" }}
-          >
-            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0">
-                <Image src={images2[0]} alt="VA base" fill sizes="270px" className="object-cover -rotate-90 scale-125" priority />
-              </div>
-              {images2.map((src, i) => (
-                <div
-                  key={src}
-                  className="absolute inset-0"
-                  style={{
-                    animation: `slideUp 12s ease-in-out infinite`,
-                    animationDelay: `${i * 4}s`,
-                    opacity: 0,
-                  }}
-                >
-                  <Image src={src} alt={`VA image ${i + 1}`} fill sizes="270px" className="object-cover -rotate-90 scale-125" priority={i === 0} />
-                </div>
-              ))}
-            </div>
-          </div>
+  {/* Image 2 */}
+  <div
+    className="absolute rounded-2xl overflow-hidden shadow-xl border border-white/60"
+    style={{ animation: "card2Swap 8s ease-in-out infinite" }}
+  >
+    <Image src={images2[0]} alt="VA 2" width={260} height={300} className="object-cover w-[220px] h-[260px] lg:w-[260px] lg:h-[300px]" priority />
+  </div>
 
-        </div>
+</div>
 
         {/* Mobile-only single image */}
         <div className="md:hidden relative w-full h-52 rounded-2xl overflow-hidden shadow-xl">
@@ -133,55 +114,96 @@ export default function HeroSection() {
       </div>
 
       <style>{`
-        @keyframes floatA {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-18px) scale(1.04); }
-        }
-        @keyframes floatB {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          50% { transform: translateY(-12px) translateX(8px); }
-        }
-        @keyframes floatC {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(14px); }
-        }
-        @keyframes floatImage {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-10px); }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes kenBurns1 {
-          0%   { opacity: 0; transform: scale(1.0) translate(0%, 0%); }
-          3%   { opacity: 1; }
-          30%  { opacity: 1; transform: scale(1.12) translate(-2%, -2%); }
-          35%  { opacity: 0; transform: scale(1.15) translate(-3%, -3%); }
-          100% { opacity: 0; transform: scale(1.15) translate(-3%, -3%); }
-        }
-        @keyframes kenBurns2 {
-          0%   { opacity: 0; transform: scale(1.1) translate(2%, 1%); }
-          3%   { opacity: 1; }
-          30%  { opacity: 1; transform: scale(1.0) translate(-1%, -1%); }
-          35%  { opacity: 0; transform: scale(0.98) translate(-2%, -2%); }
-          100% { opacity: 0; transform: scale(0.98) translate(-2%, -2%); }
-        }
-        @keyframes kenBurns3 {
-          0%   { opacity: 0; transform: scale(1.05) translate(-1%, 2%); }
-          3%   { opacity: 1; }
-          30%  { opacity: 1; transform: scale(1.15) translate(2%, -1%); }
-          35%  { opacity: 0; transform: scale(1.18) translate(3%, -2%); }
-          100% { opacity: 0; transform: scale(1.18) translate(3%, -2%); }
-        }
-        @keyframes slideUp {
-          0%   { opacity: 0;  transform: translateY(100%); }
-          5%   { opacity: 1;  transform: translateY(0%); }
-          30%  { opacity: 1;  transform: translateY(0%); }
-          35%  { opacity: 0;  transform: translateY(-100%); }
-          100% { opacity: 0;  transform: translateY(-100%); }
-        }
-      `}</style>
+  @keyframes floatA {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-18px) scale(1.04); }
+  }
+  @keyframes floatB {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-12px) translateX(8px); }
+  }
+  @keyframes floatC {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(14px); }
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Card 1: starts top-left large, moves to bottom-right small */
+  @keyframes card1Swap {
+    0%, 100% {
+      transform: translate(-80px, -60px) scale(1) rotateY(0deg);
+      z-index: 10;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    40% {
+      transform: translate(-80px, -60px) scale(1) rotateY(90deg);
+      z-index: 10;
+    }
+    50% {
+      transform: translate(60px, 50px) scale(0.85) rotateY(90deg);
+      z-index: 0;
+    }
+    90% {
+      transform: translate(60px, 50px) scale(0.85) rotateY(0deg);
+      z-index: 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+  }
+
+  /* Card 2: starts bottom-right small, moves to top-left large */
+  @keyframes card2Swap {
+    0%, 100% {
+      transform: translate(60px, 50px) scale(0.85) rotateY(0deg);
+      z-index: 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    40% {
+      transform: translate(60px, 50px) scale(0.85) rotateY(-90deg);
+      z-index: 0;
+    }
+    50% {
+      transform: translate(-80px, -60px) scale(1) rotateY(-90deg);
+      z-index: 10;
+    }
+    90% {
+      transform: translate(-80px, -60px) scale(1) rotateY(0deg);
+      z-index: 10;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+  }
+
+  @keyframes kenBurns1 {
+    0%   { opacity: 0; transform: scale(1.0) translate(0%, 0%); }
+    3%   { opacity: 1; }
+    30%  { opacity: 1; transform: scale(1.12) translate(-2%, -2%); }
+    35%  { opacity: 0; transform: scale(1.15) translate(-3%, -3%); }
+    100% { opacity: 0; transform: scale(1.15) translate(-3%, -3%); }
+  }
+  @keyframes kenBurns2 {
+    0%   { opacity: 0; transform: scale(1.1) translate(2%, 1%); }
+    3%   { opacity: 1; }
+    30%  { opacity: 1; transform: scale(1.0) translate(-1%, -1%); }
+    35%  { opacity: 0; transform: scale(0.98) translate(-2%, -2%); }
+    100% { opacity: 0; transform: scale(0.98) translate(-2%, -2%); }
+  }
+  @keyframes kenBurns3 {
+    0%   { opacity: 0; transform: scale(1.05) translate(-1%, 2%); }
+    3%   { opacity: 1; }
+    30%  { opacity: 1; transform: scale(1.15) translate(2%, -1%); }
+    35%  { opacity: 0; transform: scale(1.18) translate(3%, -2%); }
+    100% { opacity: 0; transform: scale(1.18) translate(3%, -2%); }
+  }
+  @keyframes slideUp {
+    0%   { opacity: 0;  transform: translateY(100%); }
+    5%   { opacity: 1;  transform: translateY(0%); }
+    30%  { opacity: 1;  transform: translateY(0%); }
+    35%  { opacity: 0;  transform: translateY(-100%); }
+    100% { opacity: 0;  transform: translateY(-100%); }
+  }
+`}</style>
     </section>
   );
 }

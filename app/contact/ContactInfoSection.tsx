@@ -7,7 +7,7 @@ const contacts = [
   {
     icon: Mail01Icon,
     title: "Email Us",
-    value: "powerassist@gmail.com",
+    value: "admin@powerassist.com",
     href: "mailto:powerassist@gmail.com?subject=Business Inquiry&body=Hello, I would like to inquire about...",
   },
   {
