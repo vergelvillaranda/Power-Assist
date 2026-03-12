@@ -4,8 +4,12 @@ export default function MissionVisionSection() {
   return (
     <section className="w-full bg-[#EBF5FB] py-20 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
         {/* Mission Card */}
-        <div className="rounded-2xl border-2 border-[#AED6F1] bg-transparent p-10 flex flex-col items-center text-center gap-4">
+        <div
+          className="border-2 border-[#AED6F1] bg-transparent p-10 flex flex-col items-center text-center gap-4 transition-transform duration-300 hover:-translate-y-2 cursor-default"
+          style={{ borderRadius: "0 2rem 0 2rem" }}
+        >
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#2B7BB9]">
             Our Mission
           </h2>
@@ -19,7 +23,10 @@ export default function MissionVisionSection() {
         </div>
 
         {/* Vision Card */}
-        <div className="rounded-2xl border-2 border-[#AED6F1] bg-transparent p-10 flex flex-col items-center text-center gap-4">
+        <div
+          className="border-2 border-[#AED6F1] bg-transparent p-10 flex flex-col items-center text-center gap-4 transition-transform duration-300 hover:-translate-y-2 cursor-default"
+          style={{ borderRadius: "2rem 0 2rem 0" }}
+        >
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#2B7BB9]">
             Our Vision
           </h2>
@@ -29,6 +36,7 @@ export default function MissionVisionSection() {
             meaningful collaboration and unwavering support.
           </p>
         </div>
+
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ const contacts = [
     icon: Mail01Icon,
     title: "Email Us",
     value: "powerassist@gmail.com",
-    href: "mailto:powerassist@gmail.com",
+    href: "mailto:powerassist@gmail.com?subject=Business Inquiry&body=Hello, I would like to inquire about...",
   },
   {
     icon: CallIcon,
@@ -26,35 +26,36 @@ const contacts = [
 
 export default function ContactInfoSection() {
   return (
-    <section className="w-full bg-white py-16 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section className="w-full bg-white py-12 sm:py-14 px-6 sm:px-10 lg:px-14">
+      <div className="max-w-3xl mx-auto">
+
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[#2B7BB9] mb-2">
+        <div className="text-center mb-9">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2B7BB9] mb-2">
             Other Ways to Reach Us
           </h2>
-          <p className="text-[#7DB8E0] text-sm md:text-base">
+          <p className="text-[#7DB8E0] text-sm sm:text-base">
             Have questions? We're here to help
           </p>
         </div>
 
         {/* Icons Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
           {contacts.map(({ icon, title, value, href }) => (
-            <div key={title} className="flex flex-col items-center text-center gap-3 group">
-              <div className="w-20 h-20 rounded-full bg-[#AED6F1] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <HugeiconsIcon icon={icon} size={32} color="#ffffff" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-[#2B7BB9] font-bold text-base">{title}</h3>
-              <a
-                href={href}
-                className="text-[#7DB8E0] text-sm hover:text-[#2B7BB9] transition-colors duration-150"
-              >
-                {value}
-              </a>
-            </div>
+            <div key={title} className="flex flex-col items-center text-center gap-2.5 group">
+  <a href={href} className="flex flex-col items-center gap-2.5 group">
+    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#AED6F1] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+      <HugeiconsIcon icon={icon} size={26} color="#ffffff" strokeWidth={1.5} />
+    </div>
+    <h3 className="text-[#2B7BB9] font-bold text-sm sm:text-base hover:text-[#1a6fc4] transition-colors duration-150">{title}</h3>
+  </a>
+  <a href={href} className="text-[#7DB8E0] text-sm hover:text-[#2B7BB9] transition-colors duration-150">
+    {value}
+  </a>
+</div>
           ))}
         </div>
+
       </div>
     </section>
   );

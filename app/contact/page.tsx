@@ -7,6 +7,7 @@ export default function ContactPage() {
   return (
     <>
       <ContactHeroSection />
+      <div id="application-form" />
       <ApplicationCardsSection />
       <ContactInfoSection />
       <AfterApplySection />
